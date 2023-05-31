@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о пользователе</title>
+</head>
+<body>
+<h3>Информация о пользователе: </h3>
+<p th:text="'Логин: ' + ${person.getLogin()}"></p>
+<p th:text="'Пароль: ' + ${person.getPassword()}"></p>
+<p th:text="'Роль: ' + ${person.getRole()}"></p>
+<hr>
+<a th:href="@{/admin/person_list/person_info/person_edit/{id}(id=${person.getId()})}">Редактирование пользователя</a>
+</body>
+</html>

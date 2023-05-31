@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование пользователя</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/person_list/person_info/person_edit/{id}(id=${person.getId()})}" th:object="${person}" enctype="multipart/form-data">
+    <input type="text" th:field="*{login}" placeholder="Логин" id="login">
+    <br>
+    <br>
+    <input type="text" th:field="*{password}" placeholder="Пароль" id="password">
+    <br>
+    <br>
+    <label for="role">Введите роль пользователю: </label>
+    <input type="text" th:field="*{role}" placeholder="Роль" id="role">
+    <div style="color: red" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></div>
+    <br>
+    <br>
+    <input type="submit" value="Редактировать">
+</form>
+</body>
+</html>

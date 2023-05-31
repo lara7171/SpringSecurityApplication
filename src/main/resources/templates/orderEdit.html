@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение статуса заказа</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/order_list/order_info/order_edit/{id}(id=${order.getId()})}" th:object="${order}" enctype="multipart/form-data">
+    <label for="person_id">Пользователь: </label>
+    <input type="text" th:field="*{person}" placeholder="Пользователь" id="person_id">
+    <label for="status">Выберите статус заказа: </label>
+    <select id="status" th:field="*{status}">
+        <option th:each="enum : ${T(com.example.springsecurityapplication.enumm.Status).values()}" th:text="${enum.getDisplayValue()}" th:value="${enum}"></option>
+    </select>
+    <br>
+    <input type="submit" value="Редактировать">
+</form>
+</body>
+</html>
